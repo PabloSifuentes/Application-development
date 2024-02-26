@@ -30,6 +30,12 @@ public class Main {
         }
     }
 
+    /**
+     * Metodo para extrair a piada do JSON retornado pela API.
+     * @param resposta Resposta da API no formato String.
+     * @return A piada extraida da resposta da API.
+     * */
+
     private static String obterPiadaChuchNorris(String resposta) {
 
 
