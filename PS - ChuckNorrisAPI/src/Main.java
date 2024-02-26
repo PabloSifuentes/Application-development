@@ -23,14 +23,15 @@ public class Main {
                 resposta.append(linha);
             }
             leitor.close();
-            String piada = obterPiadaChuchNorris();
+            String piada = obterPiadaChuchNorris(resposta.toString());
+            System.out.println(piada);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static String obterPiadaChuchNorris() throws IOException {
-        
+    private static String obterPiadaChuchNorris(String resposta) {
+
 
         //Extraindo a piada do JSON
         int inicioDoIndice = resposta.indexOf("\"value\":") + ("\"value\":".length());
