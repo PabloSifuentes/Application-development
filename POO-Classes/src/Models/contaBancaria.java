@@ -10,14 +10,13 @@ public class contaBancaria {
     private Double saldo;
 
     //Contrutor da conta.
-
     public contaBancaria (String numeroDaConta, String nomeDoTitular, Double saldo){
         this.numeroDaConta = numeroDaConta;
         this.nomeDoTitular = nomeDoTitular;
         this.saldo = saldo;
     }
-    //GET and SET.
 
+    //GET and SET.
     public String getnumeroDaConta() {
         return numeroDaConta;
     }
@@ -35,12 +34,12 @@ public class contaBancaria {
     public Double getsaldo() {
         return saldo;
     }
-    public void setsaldo(Double saldo) {
+    public void setsaldo() {
         this.saldo = saldo;
     }
-    //Extrato
 
-        public void imprimirExtrato() {
+    //Extrato
+    public void imprimirExtrato() {
         System.out.println("Titular:"+nomeDoTitular+" Conta:"+numeroDaConta+" Saldo:"+saldo);
     }
 
