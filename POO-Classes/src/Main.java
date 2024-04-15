@@ -1,20 +1,10 @@
-import Models.Livro;
-
-import java.util.Scanner;
+import Models.Carro;
 
 
 public class Main {
     public static void main(String[] args) {
 
-        try (Scanner entrada = new Scanner(System.in)) {
-
-            Livro meuLivro = new Livro("Star Wars", "George Lucas", 1977);
-
-            meuLivro.imprimirInformacoes();
-
-
-
-
-        }
+        Carro meuCarro = new Carro("Nissan", "Skyline R34", 1999, 2);
+        meuCarro.display();
     }
 }
