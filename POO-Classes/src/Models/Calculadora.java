@@ -16,6 +16,7 @@ public class Calculadora {
     public static int divisao(int num7, int num8) {
         if(num8 == 0) {
             System.out.println("Não é possivel dividir por 0!");
+            return 0;
         }
         return num7 / num8;
     }
