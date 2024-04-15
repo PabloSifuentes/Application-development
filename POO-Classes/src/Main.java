@@ -1,18 +1,20 @@
-import Models.Calculadora;
+import Models.Livro;
+
+import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
 
-        int resultSoma = Calculadora.adicao(20,5);
-        System.out.println("Valor da soma: "+resultSoma);
+        try (Scanner entrada = new Scanner(System.in)) {
 
-        int resultSubtracao = Calculadora.subtracao(200,100);
-        System.out.println("Valor da subtração: "+resultSubtracao);
+            Livro meuLivro = new Livro("Star Wars", "George Lucas", 1977);
 
-        int resultMultiplicacao = Calculadora.multiplicacao(3,5);
-        System.out.println("Valor da multiplicação: "+resultMultiplicacao);
+            meuLivro.imprimirInformacoes();
 
-        int resultDivisao = Calculadora.divisao(10,2);
-        System.out.println("Valor da divisão: "+resultDivisao);
+
+
+
+        }
     }
 }
