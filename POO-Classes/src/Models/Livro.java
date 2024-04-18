@@ -48,7 +48,7 @@ public class Livro {
 
     //Método Emprestar and Devolver
 
-    public void emprestarLivro() {
+    public void emprestar() {
         if (estaEmprestado) {
             estaEmprestado = true;
             System.out.println("Livro emprestado com sucesso!");
@@ -56,7 +56,7 @@ public class Livro {
             System.out.println("Este Livro já foi emprestado.");
         }
     }
-    public void devolverLivro() {
+    public void devolver() {
         if (estaEmprestado) {
             estaEmprestado = false;
             System.out.println("Livro devolvido com Sucesso!");
