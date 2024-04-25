@@ -24,11 +24,21 @@ public class GerenciadorUsuario {
     return null;
     }
     public void atualizarUsuario(String id,String novoNome, String novoEmail) {
-       Usuario atualizandoUser = obterUsuarioPorId(id);
-       if(atualizandoUser != null) {
-           atualizandoUser.setNome(novoNome);
-           atualizandoUser.setEmail(novoEmail);
-       }
+        Usuario atualizandoUser = obterUsuarioPorId(id);
+        if (atualizandoUser != null) {
+            atualizandoUser.setNome(novoNome);
+            atualizandoUser.setEmail(novoEmail);
+        }
+    }
+       public void removerUsuario(String id) {
+           Usuario userToRemove = null;
+           for(Usuario user : usuariosList) {
+               if(user.getId() == id) {
+                   userToRemove = user;
+                   break;
+               }
+           }
+        }
     }
 
 
@@ -36,4 +46,4 @@ public class GerenciadorUsuario {
 
 
 
-}
+

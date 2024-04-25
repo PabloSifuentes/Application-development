@@ -7,7 +7,12 @@ public class Usuario {
 
    private String email;
 
-    //Construtor para inicializar os campos
+    /**
+     * Construtor com argumentos do objeto Usuário
+     * @param id Identificador do Usuário
+     * @param nome Nome do Usuários
+     * @param email Email do Usuário
+     */
     public Usuario(String id, String nome, String email){
         this.id = id;
         this.nome = nome;
@@ -41,5 +46,12 @@ public class Usuario {
     //Metodo toString()
 
 
-
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id='" + id + '\'' +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
