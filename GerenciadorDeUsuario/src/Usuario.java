@@ -1,11 +1,12 @@
+
 public class Usuario {
 
     //Atributos de Usuario
-   private String id;
+    private String id;
 
-   private String nome;
+    private String nome;
 
-   private String email;
+    private String email;
 
     /**
      * Construtor com argumentos do objeto Usuário

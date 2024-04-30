@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,12 +9,12 @@ public class GerenciadorUsuario {
 
     //Método CRUD
 
-   public void adicionarUsuario(Usuario usuario) {
-       usuariosList.add(usuario);
+    public void adicionarUsuario(Usuario usuario) {
+        usuariosList.add(usuario);
     }
     public void obterTodosUsuarios() {
-       for(Usuario user : usuariosList)
-           System.out.println(usuariosList);
+        for(Usuario user : usuariosList)
+            System.out.println(usuariosList);
     }
     public Usuario obterUsuarioPorId(String id) {
         for (Usuario user : usuariosList) {
@@ -21,29 +22,16 @@ public class GerenciadorUsuario {
                 return user;
             }
         }
-    return null;
+        return null;
     }
-    public void atualizarUsuario(String id,String novoNome, String novoEmail) {
-        Usuario atualizandoUser = obterUsuarioPorId(id);
-        if (atualizandoUser != null) {
-            atualizandoUser.setNome(novoNome);
-            atualizandoUser.setEmail(novoEmail);
+    public void atualizarUsuario(String idParaBuscaOUsuario,String novoNome, String novoEmail) {
+        Usuario atualizandoUsuario = obterUsuarioPorId(idParaBuscaOUsuario);
+        if (atualizandoUsuario != null) {
+            atualizandoUsuario.setNome(novoNome);
+            atualizandoUsuario.setEmail(novoEmail);
         }
     }
-       public void removerUsuario(String id) {
-           Usuario userToRemove = null;
-           for(Usuario user : usuariosList) {
-               if(user.getId() == id) {
-                   userToRemove = user;
-                   break;
-               }
-           }
-        }
-    }
-
-
-
-
-
-
-
+    public void removerUsuario(String idParaRemover) {
+        usuariosList.removeIf(usuario -> usuario.getId().equals(idParaRemover));
+            }
+}
