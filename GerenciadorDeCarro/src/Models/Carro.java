@@ -4,11 +4,11 @@ public class Carro {
 
     //Atributos
 
-   private String placa;
+    private String placa;
 
-   private String modelo;
+    private String modelo;
 
-   private String cor;
+    private String cor;
 
     int anoDeFabricacao;
 
@@ -21,7 +21,6 @@ public class Carro {
         this.anoDeFabricacao = anoDeFabricacao;
     }
     //Métodos
-
 
     public String getPlaca() {
         return placa;
@@ -67,7 +66,7 @@ public class Carro {
                 "placa='" + placa + '\'' +
                 ", modelo='" + modelo + '\'' +
                 ", cor='" + cor + '\'' +
-                ", anoDeFabricacao=" + anoDeFabricacao +
-                '}';
+                ", anoDeFabricacao=" + anoDeFabricacao + '\'' +
+                '}' + "\n";
     }
 }
