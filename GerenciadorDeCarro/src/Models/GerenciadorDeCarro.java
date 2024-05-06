@@ -36,7 +36,6 @@ public class gerenciadorDeCarro {
             carroParaAtualizar.setCor(novaCor);
             carroParaAtualizar.setModelo(novoModelo);
         }
-
     }
     public void atualizarCarroModelo (String placaParaAtualizar, String novoModelo) {
         Carro carroParaAtualizar = obterCarrPorPlaca(placaParaAtualizar);

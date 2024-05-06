@@ -46,8 +46,6 @@ public class Usuario {
     }
 
     //Metodo toString()
-
-
     @Override
     public String toString() {
         return "Usuario{" +
