@@ -2,9 +2,13 @@ import java.util.Scanner;
 
 public class Main {
     public static <line> void main(String[] args) {
+<<<<<<< HEAD
 
         Scanner entrada = new Scanner(System.in);
 
+=======
+        Scanner entrada = new Scanner(System.in);
+>>>>>>> cbe47732225161d20499ade8247a459bbda7f3ad
         Usuario[] usuarios = new Usuario[100];
         int totalUsuarios = 0;
         boolean controleMenu = true;
@@ -121,6 +125,7 @@ public class Main {
                     System.out.println("Encerrando...");
                     entrada.close();
                     return; // Encerrar o programa
+
                 default:
                     System.out.println("opação inválida.");
                     break;
@@ -128,3 +133,4 @@ public class Main {
         }
     }
 }
+
