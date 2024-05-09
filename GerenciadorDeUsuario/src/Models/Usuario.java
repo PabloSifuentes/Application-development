@@ -1,3 +1,7 @@
+<<<<<<< HEAD:GerenciadorDeUsuario/src/Usuario.java
+=======
+package Models;
+>>>>>>> 231764e48891082b0c638c95d670be9d6ac48048:GerenciadorDeUsuario/src/Models/Usuario.java
 
 public class Usuario {
 
@@ -45,8 +49,6 @@ public class Usuario {
     }
 
     //Metodo toString()
-
-
     @Override
     public String toString() {
         return "Usuario{" +

@@ -4,12 +4,20 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Application-development.iml" filepath="$PROJECT_DIR$/.idea/Application-development.iml" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/GerenciadorDeCarro/GerenciadorDeCarro.iml" filepath="$PROJECT_DIR$/GerenciadorDeCarro/GerenciadorDeCarro.iml" />
 =======
 >>>>>>> cbe47732225161d20499ade8247a459bbda7f3ad
+=======
+      <module fileurl="file://$PROJECT_DIR$/GerenciadorDeCarro/GerenciadorDeCarro.iml" filepath="$PROJECT_DIR$/GerenciadorDeCarro/GerenciadorDeCarro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GerenciadorDeLivros/GerenciadorDeLivros.iml" filepath="$PROJECT_DIR$/GerenciadorDeLivros/GerenciadorDeLivros.iml" />
+>>>>>>> 231764e48891082b0c638c95d670be9d6ac48048
       <module fileurl="file://$PROJECT_DIR$/GerenciadorDeUsuario/GerenciadorDeUsuario.iml" filepath="$PROJECT_DIR$/GerenciadorDeUsuario/GerenciadorDeUsuario.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GerenciamentoDeProdutos/GerenciamentoDeProdutos.iml" filepath="$PROJECT_DIR$/GerenciamentoDeProdutos/GerenciamentoDeProdutos.iml" />
       <module fileurl="file://$PROJECT_DIR$/POO-Classes/POO-Classes.iml" filepath="$PROJECT_DIR$/POO-Classes/POO-Classes.iml" />
       <module fileurl="file://$PROJECT_DIR$/PS - ChuckNorrisAPI/PS - ChuckNorrisAPI.iml" filepath="$PROJECT_DIR$/PS - ChuckNorrisAPI/PS - ChuckNorrisAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SistemaDeGerenciamentoDeAlunos/SistemaDeGerenciamentoDeAlunos.iml" filepath="$PROJECT_DIR$/SistemaDeGerenciamentoDeAlunos/SistemaDeGerenciamentoDeAlunos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SistemaDeGerenciamentoDeArtigos/SistemaDeGerenciamentoDeArtigos.iml" filepath="$PROJECT_DIR$/SistemaDeGerenciamentoDeArtigos/SistemaDeGerenciamentoDeArtigos.iml" />
     </modules>
   </component>
 </project>
