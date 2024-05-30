@@ -4,7 +4,7 @@ import Models.Carro;
 import java.util.List;
 import java.util.Scanner;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         GerenciadorDeCarro gerenciador = new GerenciadorDeCarro();
