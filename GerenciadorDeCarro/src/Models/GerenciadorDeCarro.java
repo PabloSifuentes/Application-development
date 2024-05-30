@@ -1,50 +1,10 @@
-<<<<<<< HEAD
-package Models;
 
-import Models.Carro;
+package Models;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GerenciadorDeCarro {
-
-    //Atributos
-    private List<Carro> listaDeCarros = new ArrayList<>();
-
-    //Métodos
-
-    public boolean adicionarCarro(Carro carroInformado) {
-        for (Carro carroDentroDaLista : listaDeCarros) {
-            if (carroDentroDaLista.getPlaca().equals(carroInformado.getPlaca())) {
-                return false;
-            }
-        }
-        listaDeCarros.add(carroInformado);
-        return true;
-    }
-
-    public List<Carro> getListaDeCarros() {
-        return listaDeCarros;
-    }
-    private Carro obterCarrPorPlaca(String placaFornecidoPorBusca) {
-        for(Carro carroDentroDaLista : listaDeCarros) {
-            if(carroDentroDaLista.getPlaca().equals(placaFornecidoPorBusca)) {
-                return carroDentroDaLista;
-            }
-        }
-        return null;
-    }
-    public void atualizarCarro(String modelo, String cor) {
-
-    }
-}
-=======
-package Models;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class gerenciadorDeCarro {
 
     //Atributos
     private List<Carro> listaDeCarros = new ArrayList<>();
@@ -94,4 +54,3 @@ public class gerenciadorDeCarro {
         listaDeCarros.removeIf(carro -> carro.getPlaca().equals(placaParaRemover));
     }
 }
->>>>>>> 231764e48891082b0c638c95d670be9d6ac48048

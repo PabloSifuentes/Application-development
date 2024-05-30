@@ -1,13 +1,13 @@
-import Models.gerenciadorDeCarro;
+import Models.GerenciadorDeCarro;
 import Models.Carro;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class main {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        gerenciadorDeCarro gerenciador = new gerenciadorDeCarro();
+        GerenciadorDeCarro gerenciador = new GerenciadorDeCarro();
 
         while(true){
             System.out.println("Gerenciador de Carro:\n");
