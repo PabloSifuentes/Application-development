@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Main {
@@ -6,11 +7,10 @@ public class Main {
 
         GerenciamentoEleicao eleicao = new GerenciamentoEleicao();
         Scanner entradaDeVoto = new Scanner(System.in);
-        int eleitores = 50;
         boolean controleVoto = true; // controla se a votação ainda está ativa
 
         // Loop para coletar os votos de até 50 eleitores
-        for (int i = 0; i < eleitores && controleVoto; i++) {
+        for (int i = 0; i < 50 && controleVoto; i++) {
             System.out.println("Eleitor " + (i + 1) + ":");
 
             // Informar turma
@@ -48,20 +48,26 @@ public class Main {
             // Contabilizar voto
             eleicao.votar(voto, turma);
 
-            // Perguntar se deseja continuar a votação
-            System.out.println("Deseja continuar votando?\n" +
-                    "┏━━━━━━━━━━━━━┑\n" +
-                    "┃ [0] - Sim   ┃\n" +
-                    "┃ [1] - Não   ┃\n" +
-                    "┗━━━━━━━━━━━━━┙");
-            int opcao = entradaDeVoto.nextInt();
 
-            if (opcao == 1) {  // Se o usuário escolher encerrar
-                System.out.println("Encerrando votação...");
-                controleVoto = false;  // Isso encerra o loop for
-            } else if (opcao != 0) {  // Qualquer valor fora de [0] e [1] é inválido
-                System.out.println("Opção inválida, tente novamente!");
-                i--;  // Volta o contador para refazer a votação do mesmo eleitor
+            // Perguntar se deseja continuar a votação
+            boolean respostaValida = false;
+            while (!respostaValida) {  // Mantém o loop até que uma opção válida seja escolhida
+                System.out.println("Deseja continuar votando?\n" +
+                        "┏━━━━━━━━━━━━━┑\n" +
+                        "┃ [0] - Sim   ┃\n" +
+                        "┃ [1] - Não   ┃\n" +
+                        "┗━━━━━━━━━━━━━┙");
+                int opcao = entradaDeVoto.nextInt();
+
+                if (opcao == 1) {
+                    System.out.println("Encerrando votação...");
+                    controleVoto = false;  // Isso encerra o loop for
+                    respostaValida = true; // Indica que uma resposta válida foi dada
+                } else if (opcao == 0) {
+                    respostaValida = true; // A resposta é válida, mas o loop for continua
+                } else {
+                    System.out.println("Opção inválida, tente novamente!");
+                }
             }
         }
         // Mostrar os resultados ao final

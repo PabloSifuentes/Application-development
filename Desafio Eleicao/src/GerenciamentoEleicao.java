@@ -49,7 +49,7 @@ public class GerenciamentoEleicao {
 
         for (Candidato candidato : candidatos) {
             double percCandidato = (double) candidato.getVotos() / totalVotos * 100;
-            System.out.println(candidato.getNome() + "Recebeu" + candidato.getVotos() + " votos (" + percCandidato + "%)");
+            System.out.println(candidato.getNome() + "Recebeu " + candidato.getVotos() + " votos (" + percCandidato + "%)");
         }
 
         for (Candidato candidato : candidatos) {
