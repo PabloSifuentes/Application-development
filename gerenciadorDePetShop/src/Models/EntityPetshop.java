@@ -4,82 +4,80 @@ import java.util.Arrays;
 
 public class EntityPetshop {
 
-    private String[] cliente;
-    private String[] Animal;
-    private String[] tipoDeAnimal;
-    private int[] CPF;
-    private String[] tipoDeServiço;
-    private String[] statusDoServiço;
+    private String cliente;
+    private String animal;
+    private String tipoDeAnimal;
+    private int CPF;
+    private int tipoDeServico;
+    private int statusDoServico;
 
     public EntityPetshop() {
     }
-
-    public EntityPetshop(String[] cliente, String[] animal, String[] tipoDeAnimal, int[] CPF, String[] tipoDeServiço, String[] statusDoServiço) {
+    public EntityPetshop(String cliente, String animal, String tipoDeAnimal, int CPF, int tipoDeServico, int statusDoServico) {
         this.cliente = cliente;
-        this.Animal = animal;
+        this.animal = animal;
         this.tipoDeAnimal = tipoDeAnimal;
         this.CPF = CPF;
-        this.tipoDeServiço = tipoDeServiço;
-        this.statusDoServiço = statusDoServiço;
+        this.tipoDeServico = tipoDeServico;
+        this.statusDoServico = statusDoServico;
     }
 
-    public String[] getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public void setCliente(String[] cliente) {
+    public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 
-    public String[] getAnimal() {
-        return Animal;
+    public String getAnimal() {
+        return animal;
     }
 
-    public void setAnimal(String[] animal) {
-        Animal = animal;
+    public void setAnimal(String animal) {
+        this.animal = animal;
     }
 
-    public String[] getTipoDeAnimal() {
+    public String getTipoDeAnimal() {
         return tipoDeAnimal;
     }
 
-    public void setTipoDeAnimal(String[] tipoDeAnimal) {
+    public void setTipoDeAnimal(String tipoDeAnimal) {
         this.tipoDeAnimal = tipoDeAnimal;
     }
 
-    public int[] getCPF() {
+    public int getCPF() {
         return CPF;
     }
 
-    public void setCPF(int[] CPF) {
+    public void setCPF(int CPF) {
         this.CPF = CPF;
     }
 
-    public String[] getTipoDeServiço() {
-        return tipoDeServiço;
+    public int getTipoDeServico() {
+        return tipoDeServico;
     }
 
-    public void setTipoDeServiço(String[] tipoDeServiço) {
-        this.tipoDeServiço = tipoDeServiço;
+    public void setTipoDeServico(int tipoDeServico) {
+        this.tipoDeServico = tipoDeServico;
     }
 
-    public String[] getStatusDoServiço() {
-        return statusDoServiço;
+    public int getStatusDoServico() {
+        return statusDoServico;
     }
 
-    public void setStatusDoServiço(String[] statusDoServiço) {
-        this.statusDoServiço = statusDoServiço;
+    public void setStatusDoServico(int statusDoServico) {
+        this.statusDoServico = statusDoServico;
     }
     @Override
     public String toString() {
         return "EntityPetshop{" +
-                "cliente=" + Arrays.toString(cliente) +
-                ", Animal=" + Arrays.toString(Animal) +
-                ", tipoDeAnimal=" + Arrays.toString(tipoDeAnimal) +
-                ", CPF=" + Arrays.toString(CPF) +
-                ", tipoDeServiço=" + Arrays.toString(tipoDeServiço) +
-                ", statusDoServiço=" + Arrays.toString(statusDoServiço) +
+                "cliente='" + cliente + '\'' +
+                ", animal='" + animal + '\'' +
+                ", tipoDeAnimal='" + tipoDeAnimal + '\'' +
+                ", CPF=" + CPF +
+                ", tipoDeServico='" + tipoDeServico + '\'' +
+                ", statusDoServico='" + statusDoServico + '\'' +
                 '}';
     }
 }
-

@@ -1,67 +1,68 @@
 package Models;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class GerenciadorPetshop {
 
-private List<EntityPetshop> listaDeCadastro = new ArrayList<>();
+    private ArrayList<EntityPetshop> listaDeCadastro = new ArrayList<>();
 
-public GerenciadorPetshop() {
-}
+    public GerenciadorPetshop() {
+        this.listaDeCadastro = new ArrayList<>();
+    }
 
-public void cadastrarClientes(EntityPetshop clienteAdicionado) {
-    for(EntityPetshop cadastroDentroDaLista : listaDeCadastro) {
-        if (cadastroDentroDaLista.getCPF().equals(clienteAdicionado.getCPF())) {
-            System.out.println("Erro: Cliente já cadastrado!");
-            return;
+    // Adiciona um novo cadastro na ArrayList
+    public boolean adicionarCadastro(EntityPetshop novoCadastro) {
+        for (EntityPetshop cliente : listaDeCadastro) {
+            if (cliente.getCPF() == novoCadastro.getCPF()) {
+                // Se o CPF já existir, não adiciona e retorna false
+                return false;
+            }
+        }
+        listaDeCadastro.add(novoCadastro);
+        System.out.println("Cadastro adicionado: " + novoCadastro.getCliente());
+        return true; // Indica que o cliente foi adicionado com sucesso
+    }
+    public void listarTodos() {
+        System.out.println("Listando todos os cadastros:");
+        for (EntityPetshop cadastro : listaDeCadastro) {
+            System.out.println(cadastro);
         }
     }
-            listaDeCadastro.add(clienteAdicionado);
-            System.out.println("Cliente cadastrado com sucesso!");
-}
-public void obterTodosClientesCadastrados() {
-    if (listaDeCadastro.isEmpty()) {
-        System.out.println("Não há livros na lista!");
+    // Busca um cadastro pelo CPF
+    public EntityPetshop buscarPorCPF(int cpfBusca) {
+        for (EntityPetshop cadastro : listaDeCadastro) {
+            if (cadastro.getCPF() == cpfBusca) {
+                return cadastro; // Retorna o cadastro se o CPF for encontrado
+            }
+        }
+        System.out.println("Cadastro não encontrado para o CPF: " + cpfBusca);
+        return null;
     }
-    listaDeCadastro.forEach(System.out::println);
-}
-private EntityPetshop obterClietePorCPF(int cpfBusca) {
-    for (EntityPetshop cadastroDentroDaLista : listaDeCadastro) {
-        if (cadastroDentroDaLista.getCPF().equals(cpfBusca)) {
-            return cadastroDentroDaLista;
+
+    public void atualizarCadastro(int cpfBusca, String novoNome, String novoAnimal, String novoTipoAnimal) {
+    EntityPetshop entityPetshopDentroDaLista = buscarPorCPF(cpfBusca);
+    if (entityPetshopDentroDaLista != null) {
+        entityPetshopDentroDaLista.setCliente(novoNome);
+        entityPetshopDentroDaLista.setAnimal(novoAnimal);
+        entityPetshopDentroDaLista.setTipoDeAnimal(novoTipoAnimal);
+    }
+        System.out.println("Cadastro atualizado com successo.");
+    }
+    // Remove um cadastro pelo CPF
+    public void removerCadastro(int cpfBusca) {
+        // Usando a remoção via removeIf, que remove elementos da lista que satisfazem a condição
+        boolean removido = listaDeCadastro.removeIf(cadastro -> cadastro.getCPF() == cpfBusca);
+
+        if (removido) {
+            System.out.println("Cadastro removido para o CPF: " + cpfBusca);
+        } else {
+            System.out.println("Cadastro não encontrado para remover.");
         }
     }
-    System.out.println("Cadastro não encontrado.");
-    return null;
-}
-public void atualizarCadastro (int cpfBusca, String novoAnimal, String novoTipoDeAnimal) {
-    EntityPetshop cadastroDentroDaLista = obterClietePorCPF(cpfBusca);
-    if (cadastroDentroDaLista != null) {
-        cadastroDentroDaLista.setAnimal(new String[]{novoAnimal});
-        cadastroDentroDaLista.setTipoDeAnimal(new String[]{novoTipoDeAnimal});
-        System.out.println("Cadastro atualizado com sucesso!");
-        System.out.println(cadastroDentroDaLista);
-    } else {
-        System.out.println("Cadastro não encontrado.");
+    public void agendamento(int cpfBusca, int agendarServico, int atualizarStatus) {
+    EntityPetshop entityPetshopDentroDalista = buscarPorCPF(cpfBusca);
+    if (entityPetshopDentroDalista != null) {
+        entityPetshopDentroDalista.setTipoDeServico(agendarServico);
+        entityPetshopDentroDalista.setStatusDoServico(atualizarStatus);
     }
-}
-public void removerCadastro(int cpfBusca) {
-    boolean removido = listaDeCadastro.removeIf(entityPetshop -> entityPetshop.getCPF().equals(cpfBusca));
-    if (removido) {
-        System.out.println("Cadastro excluido com sucesso!");
-    } else {
-        System.out.println("Cadastro com CPF: " + cpfBusca + "não encontrado.");
     }
-}
-public void gerenciarServico(int cpfBusca, String tipoServico, String statusServico) {
-    EntityPetshop cliente = obterClietePorCPF(cpfBusca);
-    if (cliente != null) {
-        cliente.setTipoDeServiço(new String[]{tipoServico});
-        cliente.setStatusDoServiço(new String[]{statusServico});
-        System.out.println("Serviço de " + tipoServico + " para o cliente de CPF " + cpfBusca + " está agora " + statusServico + ".");
-    } else {
-        System.out.println("Cliente não encontrado para o CPF: " + cpfBusca);
-    }
-}
 }

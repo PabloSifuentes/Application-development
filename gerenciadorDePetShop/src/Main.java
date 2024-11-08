@@ -1,16 +1,15 @@
 import Models.EntityPetshop;
-import Models.GerenciadorPetshop;
-
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner entrada = new Scanner(System.in);
-        EntityPetshop entityCadastro = new EntityPetshop();
-        GerenciadorPetshop gerenciar = new GerenciadorPetshop();
+        Models.GerenciadorPetshop gerenciar = new Models.GerenciadorPetshop();
+        EntityPetshop clienteGlobal = new EntityPetshop();
 
-        while () {
+        boolean controleDoMenu = true;
+        while (controleDoMenu) {
             System.out.println("        -Cadastro de Cliente-");
             System.out.println("" +
                     "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑\n" +
@@ -37,32 +36,33 @@ public class Main {
                     System.out.println("Pet: ");
                     String pet = entrada.nextLine();
                     System.out.println("Raça: ");
-                    String raca = entrada.nextLine();
+                    String tipoDeAnimal = entrada.nextLine();
+                    System.out.println("Tipo de Serviço: \n [1]-Banho [2]-Tosa");
+                    int tipoDeSevico12 = entrada.nextInt();
+                    entrada.nextLine();
+                    System.out.println("Status do Serviço: \n [1]-Agendado [2]-Concluido");
+                    int statusServiço = entrada.nextInt();
+                    entrada.nextLine();
 
-                    EntityPetshop clienteAdicionado = new EntityPetshop();
-                    clienteAdicionado.setCliente(new String[]{nome});
-                    clienteAdicionado.setCPF(new int[]{cpf});
-                    clienteAdicionado.setAnimal(new String[]{raca});
-                    clienteAdicionado.setTipoDeAnimal(new String[]{pet});
-
-                    gerenciar.cadastrarClientes(clienteAdicionado);
+                    EntityPetshop cliente = new EntityPetshop(nome, pet, tipoDeAnimal, cpf, tipoDeSevico12, statusServiço );
+                    if (!gerenciar.adicionarCadastro(cliente)) {
+                        System.out.println("Erro, Cliente já existente! tente novamente.");
+                    }
                     break;
-
                 case 2:
                     boolean controleServico = true;
                     while (controleServico) {
                         System.out.println("CPF do cliente: ");
                         int cpfCliente = entrada.nextInt();
-                        if (entityCadastro.getCPF().equals(cpfCliente)) {
-                            controleServico = true;
+                        EntityPetshop clienteEncontrado = gerenciar.buscarPorCPF(cpfCliente);
+
+                        if (clienteEncontrado.getCPF() == cpfCliente) {
+                            System.out.println("Cadastro encontrado.");
+                            System.out.println(clienteGlobal.getCliente()+ " Agendamento: \n" + clienteGlobal.getTipoDeServico() + clienteGlobal.getStatusDoServico());
+
                         } else {
-                            System.out.println("CPF não encontrado! tente novamente.");
+                            System.out.println("Cadastro não encontrado.");
                             controleServico = false;
-                        }
-                        System.out.println("Escolha o Serviço desejado: \n");
-                        System.out.println("[1] - Banho [2] - Tosa");
-                        int opcaoServico = entrada.nextInt();
-                        if (opcaoServico == 1) {
                         }
                     }
                 case 3:
@@ -76,5 +76,8 @@ public class Main {
             }
 
         }
+    }
+
+    private static class GerenciadorPetshop {
     }
 }
