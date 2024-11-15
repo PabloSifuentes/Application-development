@@ -7,6 +7,8 @@ public class Main {
         Scanner entrada = new Scanner(System.in);
         Models.GerenciadorPetshop gerenciar = new Models.GerenciadorPetshop();
         EntityPetshop clienteGlobal = new EntityPetshop();
+        int tipoDeSevico12 = 0;
+        int statusServico = 0;
 
         boolean controleDoMenu = true;
         while (controleDoMenu) {
@@ -37,14 +39,34 @@ public class Main {
                     String pet = entrada.nextLine();
                     System.out.println("Raça: ");
                     String tipoDeAnimal = entrada.nextLine();
-                    System.out.println("Tipo de Serviço: \n [1]-Banho [2]-Tosa");
-                    int tipoDeSevico12 = entrada.nextInt();
-                    entrada.nextLine();
-                    System.out.println("Status do Serviço: \n [1]-Agendado [2]-Concluido");
-                    int statusServiço = entrada.nextInt();
-                    entrada.nextLine();
 
-                    EntityPetshop cliente = new EntityPetshop(nome, pet, tipoDeAnimal, cpf, tipoDeSevico12, statusServiço );
+                    boolean controleTipo = true;
+                    while (controleTipo) {
+                        System.out.println("Tipo de Serviço: \n [1]-Banho [2]-Tosa");
+                        tipoDeSevico12 = entrada.nextInt();
+                        if (tipoDeSevico12 != 1 && tipoDeSevico12 != 2) {
+                            System.out.println("Opção invalida, tente novamente.");
+                            controleTipo = true;
+                        } else {
+                            entrada.nextLine();
+                            controleTipo = false;
+                        }
+                    }
+
+                    boolean controleStatus = true;
+                    while(controleStatus) {
+                        System.out.println("Status do Serviço: \n [1]-Agendado [2]-Concluido");
+                        statusServico = entrada.nextInt();
+                        if (statusServico != 1 && statusServico != 2) {
+                            System.out.println("Opção invalida, tente novamente.");
+                            controleStatus = true;
+                        } else {
+                            entrada.nextLine();
+                            controleStatus = false;
+                        }
+                    }
+
+                    EntityPetshop cliente = new EntityPetshop(nome, pet, tipoDeAnimal, cpf, tipoDeSevico12, statusServico );
                     if (!gerenciar.adicionarCadastro(cliente)) {
                         System.out.println("Erro, Cliente já existente! tente novamente.");
                     }
@@ -54,30 +76,60 @@ public class Main {
                     while (controleServico) {
                         System.out.println("CPF do cliente: ");
                         int cpfCliente = entrada.nextInt();
+                        entrada.nextLine();
                         EntityPetshop clienteEncontrado = gerenciar.buscarPorCPF(cpfCliente);
 
                         if (clienteEncontrado.getCPF() == cpfCliente) {
                             System.out.println("Cadastro encontrado.");
-                            System.out.println(clienteGlobal.getCliente()+ " Agendamento: \n" + clienteGlobal.getTipoDeServico() + clienteGlobal.getStatusDoServico());
-
+                            System.out.println(" Agendamento de " + clienteEncontrado.getCliente() + "\n[1]-Banho [2]-Tosa \nselecionado: " + clienteEncontrado.getTipoDeServico() + "\n[1]-Agendado [2]-Concluido \nselecionado: " + clienteEncontrado.getStatusDoServico());
+                            controleServico = false;
                         } else {
                             System.out.println("Cadastro não encontrado.");
-                            controleServico = false;
+                            controleServico = true;
                         }
                     }
                 case 3:
+                    System.out.println("Visualização de todos Cadastros: \n ");
+                    gerenciar.listarTodos();
+
                 case 4:
+
+
                 case 5:
+                    System.out.println("Atualizar registro:\n");
+                    boolean controleAtualizacao = true;
+
+                    while (controleAtualizacao) {
+                        System.out.println("Informe o CPF:\n");
+                        int cpfCliente = entrada.nextInt();
+                        EntityPetshop clinteEncontrado = gerenciar.buscarPorCPF(cpfCliente);
+                        if (clinteEncontrado.getCPF() == cpfCliente) {
+                            System.out.println("Registro encontrado!");
+                            controleAtualizacao = false;
+                            System.out.println("Novo Nome: \n");
+                            String novoNome = entrada.nextLine();
+                            System.out.println("Novo Animal: \n");
+                            String novoAnimal = entrada.nextLine();
+                            System.out.println("Novo tipo de animal: \n");
+                            String novoTipoDeAnimal = entrada.nextLine();
+                            gerenciar.atualizarCadastro(cpfCliente, novoNome, novoAnimal, novoTipoDeAnimal);
+                        } else {
+                            System.out.println("Registro não encontrado. Tente novamente.");
+                            controleAtualizacao = true;
+                        }
+                    }
                 case 6:
                 case 7:
                 case 8:
+                    System.out.println("Encerrando.");
+                    System.out.println("Encerrando..");
+                    System.out.println("Encerrando...");
+                    break;
                 default:
-
+                    System.out.println("Opção inválida, tente novamente.");
+                    controleDoMenu = true;
             }
-
         }
-    }
-
-    private static class GerenciadorPetshop {
+        entrada.close();
     }
 }
