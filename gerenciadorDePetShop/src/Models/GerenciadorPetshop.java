@@ -21,12 +21,18 @@ public class GerenciadorPetshop {
         System.out.println("Cadastro adicionado: " + novoCadastro.getCliente());
         return true; // Indica que o cliente foi adicionado com sucesso
     }
-    public void listarTodos() {
+    public boolean listarTodos() {
+        if (listaDeCadastro.isEmpty()) {
+            return false; // Não há clientes cadastrados
+        }
+
         System.out.println("Listando todos os cadastros:");
         for (EntityPetshop cadastro : listaDeCadastro) {
             System.out.println(cadastro);
         }
+        return true; // Há clientes cadastrados
     }
+
     // Busca um cadastro pelo CPF
     public EntityPetshop buscarPorCPF(int cpfBusca) {
         for (EntityPetshop cadastro : listaDeCadastro) {
@@ -65,4 +71,8 @@ public class GerenciadorPetshop {
         entityPetshopDentroDalista.setStatusDoServico(atualizarStatus);
     }
     }
+    public ArrayList<EntityPetshop> getListaDeCadastro() {
+        return listaDeCadastro;
+    }
+
 }
