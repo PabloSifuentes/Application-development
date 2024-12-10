@@ -26,9 +26,10 @@ import org.json.JSONException;
 public class ProjetoSaIoT {
 
     // Definições de constantes para configuração do cliente MQTT e tópico
-    private static final String BROKER_URL = "tcp://localhost:1883";
+    //private static final String BROKER_URL = "tcp://localhost:1883";
+    private static final String BROKER_URL = "tcp://test.mosquitto.org:1883";    
     private static final String CLIENT_ID = "JavaGUIClient";
-    private static final String TOPIC = "le_dados_qualidade_agua";
+    private static final String TOPIC = "le_dados_qualidade_agua_grupo_g";
 
     // Componentes gráficos
     private JFrame frame;
@@ -176,10 +177,11 @@ public class ProjetoSaIoT {
                         // Se tivermos todas as variáveis e o tempo não expirou, insira no banco de dados
                         try {
                             // Chama o método para inserir os dados no banco de dados
+                            float fDistancia = Float.parseFloat(distancia);
                             ConexaoDB.inserirLeitura(
                                     Float.parseFloat(temperatura),
                                     Integer.parseInt(turbidez),
-                                    Integer.parseInt(distancia),
+                                    (int)fDistancia,
                                     timestamp
                             );
 
